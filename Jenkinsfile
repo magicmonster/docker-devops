@@ -15,6 +15,7 @@ pipeline {
             steps {
                 echo 'Pushing to registry'
                 script {
+                    // credential 'dockerhub' login must be setup in Jenkins.
                     docker.withRegistry('', 'dockerhub') {
                         dockerImage.push()
                     }
